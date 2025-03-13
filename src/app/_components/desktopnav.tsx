@@ -18,9 +18,9 @@ const DesktopNavbar = () => {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger className="justify-center p-10">
-              Is it accessible?
+              Website animation
             </AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent className="">
               {/* Nested Accordion Items */}
               <Accordion
                 type="single" // Allows multiple AccordionItems to be open
@@ -29,7 +29,7 @@ const DesktopNavbar = () => {
               >
                 <AccordionItem value="item-2" className="w-40 max-w-48">
                   <AccordionTrigger>Expert</AccordionTrigger>
-                  <AccordionContent className="justify-start pb-4 pl-8 text-left">
+                  <AccordionContent className="justify-start pl-8 text-left">
                     ...
                   </AccordionContent>
                 </AccordionItem>
