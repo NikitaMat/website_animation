@@ -1,4 +1,33 @@
+"use client";
 import Link from "next/link";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import React, { useRef } from "react";
+
+const Nested = () => {
+  const circle = useRef<HTMLDivElement>(null); // Type the ref to HTMLDivElement
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.to(".box", {
+        rotation: "+=360",
+        duration: 2, // Animation duration in seconds
+        repeat: -1, // Makes the rotation repeat indefinitely
+        ease: "linear", // Smooth linear animation
+      });
+    },
+    { scope: container },
+  );
+  return (
+    <div className="nested" ref={container}>
+      <div className="box gradient-green p-6">Selector</div>
+      <div ref={circle} className="gradient-blue p-6">
+        Ref
+      </div>
+    </div>
+  );
+};
 
 export default function HomePage() {
   return (
@@ -7,7 +36,9 @@ export default function HomePage() {
         <h1 className="p-5 text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           Text-Split
         </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-x-48 md:gap-y-8">
+
+        <Nested />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:gap-x-48 md:gap-y-8">
           <Link
             className="flex max-w-md flex-col gap-4 rounded-xl bg-white/60 p-4 hover:bg-white/20"
             href="https://create.t3.gg/en/usage/first-steps"
