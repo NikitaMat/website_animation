@@ -10,31 +10,6 @@ import { Fullscreen } from "lucide-react";
 
 gsap.registerPlugin(TextPlugin, SplitText);
 
-const Nested = () => {
-  const circle = useRef<HTMLDivElement>(null); // Type the ref to HTMLDivElement
-  const container = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      gsap.to(".box", {
-        rotation: "+=360",
-        duration: 2, // Animation duration in seconds
-        repeat: -1, // Makes the rotation repeat indefinitely
-        ease: "linear", // Smooth linear animation
-      });
-    },
-    { scope: container },
-  );
-  return (
-    <div className="nested" ref={container}>
-      <div className="box gradient-green p-6">Selector</div>
-      <div ref={circle} className="gradient-blue p-6">
-        Ref
-      </div>
-    </div>
-  );
-};
-
 const SplitT = () => {
   const hero = useRef<HTMLDivElement>(null);
   const quote = useRef<HTMLDivElement>(null);
@@ -85,28 +60,27 @@ const SplitT = () => {
   }, []); // Der Effekt wird nur einmal beim Initialisieren ausgeführt
 
   return (
-    <div className="items-center justify-center px-4">
+    <div className="gird-col-3 grid max-w-xl items-center justify-center">
       <div className="hero" ref={hero}>
         <h1
-          className="pb-5 text-5xl font-extrabold tracking-tight sm:text-[5rem]"
+          className="pb-8 text-4xl font-extrabold leading-none tracking-tight sm:text-[5rem]"
           ref={quote}
         >
-          {" "}
-          Text Split !
+          Fitness Anastasia!
         </h1>
-        <p className="pl-2 text-2xl" ref={quote2}>
-          Willkommen zu Text Spaltungen
+        <p className="pl-2 text-2xl text-black" ref={quote2}>
+          Ich mache dich jetzt FIT du kleine SAU!
         </p>
       </div>
-      <div className="mt-6 grid w-full grid-cols-2 items-end justify-end align-middle">
+      <div className="justify relative mt-6 flex items-start gap-3 pl-2">
         <button
-          className="w-40 rounded-full border p-3 hover:fill-white"
+          className="w-36 items-center justify-center rounded-full border-2 border-black p-3 font-semibold hover:bg-white hover:underline hover:duration-700"
           id="words"
         >
           Learn More
         </button>
         <button
-          className="w-40 rounded-full border p-3 hover:bg-white hover:duration-700"
+          className="hover:bg-p w-36 rounded-full border-2 border-purple-400 bg-gray-50 p-3 font-semibold text-purple-400 hover:border-purple-300 hover:bg-white hover:text-black hover:duration-700"
           id="words"
         >
           Now Do it!
@@ -118,16 +92,21 @@ const SplitT = () => {
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen items-center justify-center bg-gradient-to-br from-[#ffffff] to-[#2b1f58] pt-16">
-      <div className="text-slate-1000 flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-x-48 md:gap-y-8">
-          <SplitT />
-          <Image
-            src="/women_training.jpg"
-            alt="Training"
-            width={520}
-            height={600}
-          />
+    <main className="flex items-center justify-center bg-gradient-to-br from-[#ffffff] via-[#d8c6d8] to-[#683a8d]">
+      <div className="flex flex-col items-center justify-center gap-8 px-4 text-black">
+        <div className="grid h-screen max-w-5xl grid-cols-2 items-center justify-center align-middle md:gap-y-8">
+          <SplitT></SplitT>
+          <div className="flex h-3/4 w-3/4 items-center justify-center rounded-3xl bg-black">
+            <Image
+              src="/women_training.jpg"
+              alt="Training"
+              width={820}
+              height={800}
+              className="rounded-3xl"
+            />
+          </div>
+        </div>
+        <div className="grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-3 md:gap-x-6 md:gap-y-8">
           <Link
             className="flex max-w-xl flex-col gap-4 rounded-xl bg-white/60 p-4 hover:bg-white/20"
             href="https://create.t3.gg/en/usage/first-steps"
