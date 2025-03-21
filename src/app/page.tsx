@@ -1,12 +1,11 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap-trial";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 import { SplitText } from "gsap-trial/SplitText";
 import TextPlugin from "gsap-trial/TextPlugin";
-import { Fullscreen } from "lucide-react";
+import { Products } from "./_components/Landingpage/products";
 
 gsap.registerPlugin(TextPlugin, SplitText);
 
@@ -107,6 +106,9 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-3 md:gap-x-6 md:gap-y-8"></div>
+      </div>
+      <div className="mt-20">
+        <Products />
       </div>
     </main>
   );
