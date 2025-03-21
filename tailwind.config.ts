@@ -13,6 +13,8 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "4xl": "2rem", // z.B. 32px
+        "5xl": "3rem", // z.B. 48px
       },
       colors: {
         background: "hsl(var(--background))",
